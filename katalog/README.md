@@ -1,9 +1,11 @@
 link
+
 https://tugas2teukugevin.herokuapp.com/katalog/
 
 
 Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara 
 urls.py, views.py, models.py, dan berkas html;
+
 ![alt text](./assets/bagan.png "bagan-image")
 
 
@@ -32,7 +34,7 @@ def show_katalog(request):
 
 di dalam context sendiri ini untuk data ditampilkan di html dan tambah "return render(request, "katalog.html", context)"
 
--Membuat sebuah routing untuk memetakan fungsi yang telah kamu buat pada views.py
+- Membuat sebuah routing untuk memetakan fungsi yang telah kamu buat pada views.py
 sebuah routing dibuat di urls.py dengan cara
 
 from django.urls import path
@@ -46,7 +48,7 @@ urlpatterns = [
 
 routing ini berguna untuk halaman HTML dapat ditampilkan lewat browser
 
--Memetakan data yang didapatkan ke dalam HTML dengan sintaks dari Django untuk pemetaan data template.
+- Memetakan data yang didapatkan ke dalam HTML dengan sintaks dari Django untuk pemetaan data template.
 dengan cara {{data}} seperti katalog.html contoh 
 
   <h5>Name: </h5>
@@ -55,7 +57,7 @@ dengan cara {{data}} seperti katalog.html contoh
   <h5>Student ID: </h5>
   <p>{{student_id}}</p>
 
--Melakukan deployment ke Heroku terhadap aplikasi yang sudah kamu buat sehingga nantinya dapat diakses oleh teman-temanmu melalui Internet.
+- Melakukan deployment ke Heroku terhadap aplikasi yang sudah kamu buat sehingga nantinya dapat diakses oleh teman-temanmu melalui Internet.
 ini ke heroku masuk menggunakan akun sendiri dan buat new app dengan nama apa aja dan copy nama tersebut dan juga copy API key untuk menghubungkan
 ke github repo kita yang sudah di push tadi. Di github repo kita tadi pergi ke setting, secrets, action, dan new secrets. Tambah HEROKU_APP_NAME : nama dibuat
 dan HEROKU_API_KEY : API Key heroku kita. Setelah itu paksa run deploy dan bisa
