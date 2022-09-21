@@ -97,7 +97,7 @@
             ini sudah dari tugas 2 dalam deploymentnya, tetapi karena ada data baru. Maka perlu ditambahkan di file Profile bagian akhir release, ``` ...&& python manage.py loaddata initial_mywatchlist_data.json ```
             supaya di heroku bisa ke load data-data yang diperlukan di mywatchlist.
         
-        
+
 -Screenshot dari mengakses link dari postman
 HTML
 ![alt text](./assets/postman_html.png "postman_html-image")
@@ -107,6 +107,22 @@ XML
 
 JSON
 ![alt text](./assets/postman_json.png "postman_json-image")
+
+-Menambahkan unit test pada tests.py untuk menguji bahwa tiga URL di poin 6 dapat mengembalikan respon HTTP 200 OK
+    bisa dilihat di test.py didalam folder mywatchlist dan hasilnya
+    ```
+    (env) C:\Kuliah UI\Semester 3\PBP\tugas2>python manage.py test
+    Found 3 test(s).
+    Creating test database for alias 'default'...
+    System check identified no issues (0 silenced).
+    ...
+    ----------------------------------------------------------------------
+    Ran 3 tests in 0.020s
+
+    OK
+    Destroying test database for alias 'default'...
+    ```
+
 
 
         
