@@ -110,6 +110,7 @@ JSON
 
 -Menambahkan unit test pada tests.py untuk menguji bahwa tiga URL di poin 6 dapat mengembalikan respon HTTP 200 OK
     bisa dilihat di test.py didalam folder mywatchlist dan hasilnya
+    
     ```
     (env) C:\Kuliah UI\Semester 3\PBP\tugas2>python manage.py test
     Found 3 test(s).
