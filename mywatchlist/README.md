@@ -93,6 +93,7 @@
 ![alt text](./assets/localhost_mywatchlist_json.png "localhost_mywatchlist_json-image")
 
 
+        
         -Melakukan deployment ke Heroku terhadap aplikasi yang sudah kamu buat sehingga nantinya dapat diakses oleh teman-temanmu melalui Internet.
             ini sudah dari tugas 2 dalam deploymentnya, tetapi karena ada data baru. Maka perlu ditambahkan di file Profile bagian akhir release, ``` ...&& python manage.py loaddata initial_mywatchlist_data.json ```
             supaya di heroku bisa ke load data-data yang diperlukan di mywatchlist.
