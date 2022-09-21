@@ -84,13 +84,13 @@
             bisa terlihat dari urls.py di dalam folder mywatchlist, yaitu menambahkan url di urlpatterns, sehingga ketika ditekan link-link tersebut akan mengarahkan ke view dan menampilkan format-format tersebut
             dan setelah itu lakukan ```(env) C:\Kuliah UI\Semester 3\PBP\tugas2>python manage.py runserver``` supaya link tersebut bisa mengeluarkan format yang dituju
             - Hasil link http://localhost:8000/mywatchlist/html
-            ![alt text](./assets/localhost_mywatchlist_html.png "localhost_mywatchlist_html-image")
+![alt text](./assets/localhost_mywatchlist_html.png "localhost_mywatchlist_html-image")
 
             - Hasil link http://localhost:8000/mywatchlist/xml
-            ![alt text](./assets/localhost_mywatchlist_xml.png "localhost_mywatchlist_xml-image")
+![alt text](./assets/localhost_mywatchlist_xml.png "localhost_mywatchlist_xml-image")
 
             - Hasil link http://localhost:8000/mywatchlist/json
-            ![alt text](./assets/localhost_mywatchlist_json.png "localhost_mywatchlist_json-image")
+![alt text](./assets/localhost_mywatchlist_json.png "localhost_mywatchlist_json-image")
 
 
         -Melakukan deployment ke Heroku terhadap aplikasi yang sudah kamu buat sehingga nantinya dapat diakses oleh teman-temanmu melalui Internet.
