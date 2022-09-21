@@ -1,0 +1,112 @@
+[
+    {
+        "model":"mywatchlist.mywatchlist",
+        "pk":1,
+        "fields":{
+            "watched" : false,
+            "title": "Fullmetal Alchemist",
+            "rating": "5",
+            "release_date" : "2003",
+            "review" : "Keseluruhan konsep menarik, daya tarik utamanya dari film tersebut adalah tragedy dan karakter"
+        }
+    },
+    {
+        "model":"mywatchlist.mywatchlist",
+        "pk":2,
+        "fields":{
+            "watched" : false,
+            "title": "Kaguya-sama wa Kokurasetai",
+            "rating": "5",
+            "release_date" : "2019",
+            "review" : "sebuah film yang menarik dengan segala macam aspek-aspek yang baik di dalamnya dan bergenre romantis comedy. Menceritakan kehidupan remaja sekolah yang belum cara kerja cinta sebenarnya, semua hal tersebut sangat dikemas dengan baik."
+        }
+    },
+    {
+        "model":"mywatchlist.mywatchlist",
+        "pk":3,
+        "fields":{
+            "watched" : false,
+            "title": "Gintama",
+            "rating": "5",
+            "release_date" : "2011",
+            "review" : "Film ini menceritakan kehidupan pertengahan abad 19 di-Jepang tetapi lebih ditekankan komedi-nya dan banyak juga hal-hal tidak sesuai latar waktu tetapi tetap lucu. Walaupun ditekankan komedi, film tersebut sangat memiliki banyak sekali genre"
+        }
+    },
+    {
+        "model":"mywatchlist.mywatchlist",
+        "pk":4,
+        "fields":{
+            "watched" : true,
+            "title": "Steins;Gate",
+            "rating": "5",
+            "release_date" : "2009",
+            "review" : "Film sendiri masuk ke kategori fantasi yang mengangkat tema time-travel yaitu bisa memutar balikkan waktu. Saya suka film tersebut dikarenakan banyak hal baru saya dapatkan dan ceritanya beda dari biasa yang ada apalagi perjalanan dia menyelamatkan seseorang yang mati terus-menerus walaupun dia sudah mengulangi waktu"
+        }
+    },
+    {
+        "model":"mywatchlist.mywatchlist",
+        "pk":5,
+        "fields":{
+            "watched" : false,
+            "title": "Shingeki no Kyojin",
+            "rating": "5",
+            "release_date" : "2013",
+            "review" : "Film berlatar didunia lain yang terdapat sebuah monster bernama titan dan manusia melindungi diri dari titan tersebut. Yang menarik dari film tersebut adalah tragedi, perubahan karakter utama, dan konflik awalnya dengan titan tetapi berakhir konfilk antara manusia"
+        }
+    },
+    {
+        "model":"mywatchlist.mywatchlist",
+        "pk":6,
+        "fields":{
+            "watched" : false,
+            "title": "Hunter x Hunter",
+            "rating": "5",
+            "release_date" : "2011",
+            "review" : "Film berlatar dunia yang memiliki kekuatan dan fokus ceritanya orang-orang yang ingin menjadi hunter. Ceritanya cukup menarik dari sang tokoh utama bertekad menjadi hunter dan mencari ayahnya, sang tokoh utama walaupun tidak terlalu kuat tetapi dia terus berlatih untuk melampaui banyak hal"
+        }
+    },
+    {
+        "model":"mywatchlist.mywatchlist",
+        "pk":7,
+        "fields":{
+            "watched" : true,
+            "title": "Koe no Katachi",
+            "rating": "4",
+            "release_date" : "2016",
+            "review" : "Film bercerita tokoh utama pembuli yang membuli penyandang disabilitas sewaktu kecil dan membuat dia dikucilkan ketika di SMA. Menurut saya ini cerita menarik dan berkaitan dengan dunia nyata, tetapi karakter utama disini ketika SMA berusaha meminta maaf sama yang dibuli dia dan banyak konflik yang terjadi yang menghayat hati juga"
+        }
+    },
+    {
+        "model":"mywatchlist.mywatchlist",
+        "pk":8,
+        "fields":{
+            "watched" : true,
+            "title": "Code Geass",
+            "rating": "4",
+            "release_date" : "2006",
+            "review" : "Bercerita tentang negara yang menginvasi seleruh negara lain di dunia, sang tokoh utama sendiri ingin melawan negara tersebut sedangkan dia hanya siswa biasa. Saya suka film tersebut dikarenkan tokoh utama yang cerdik dalam memanipulasi dan dari situ sangat banyak muncul plot twist, cerita tersebut juga dibarengi dengan robot bertarung dan kekuatan fantasi"
+        }
+    },
+    {
+        "model":"mywatchlist.mywatchlist",
+        "pk":9,
+        "fields":{
+            "watched" : true,
+            "title": "Made in Abyss",
+            "rating": "4",
+            "release_date" : "2017",
+            "review" : "Bercerita tentang seorang anak ingin berpetualang ke dalam jurang tanpa dasar dan mencari ibunya. Cerita tersebut bergenre fantasi dan mystery yang sangat jarang bahkan menurut saya belum ada, saya sebagai penyuka mystery sangat menyukainya, tetapi terlalu banyak adegan anak-anak tersiksa walaupun sangat masuk akal"
+        }
+    },
+    {
+        "model":"mywatchlist.mywatchlist",
+        "pk":10,
+        "fields":{
+            "watched" : true,
+            "title": "Kimetsu no Yaiba",
+            "rating": "4",
+            "release_date" : "2019",
+            "review" : "Tentang seorang anak keluarga dibunuh iblis dan anak tersebut ingin membalaskan dendamnya. Menurut saya cerita bagus bagai mana anak itu berkembang dari anak tidak pandai berkelahi menjadi pembunuh iblis, tragedi di film tersebut juga banyak, tetapi grafisnya sangat bagus sehingga menjadi nilai tambahan dari film tersebut"
+        }
+    }
+]

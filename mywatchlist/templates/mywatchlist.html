@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+ {% block content %}
+
+  <h1>Tugas 3 Assignment PBP/PBD</h1>
+
+  <h5>Name: </h5>
+  <p>{{nama}}</p>
+
+  <h5>Student ID: </h5>
+  <p>{{student_id}}</p>
+
+  <table>
+    <tr>
+      <th>No</th>
+      <th>Title</th>
+      <th>Rating </th>
+      <th>Release Date </th>
+      <th>Watched</th>
+      <th>Review</th>
+    </tr>
+{% comment %} Tambahkan data di bawah baris ini {% endcomment %}
+{% for watch in list_watch %}
+    <tr>
+        <th>{{watch.pk}}</th>
+        <th>{{watch.title}}</th>
+        <th>{{watch.rating}}</th>
+        <th>{{watch.release_date}}</th>
+        {% if watch.watched == "1" %}
+            <th>Sudah pernah ditonton</th>
+        {% else %}
+            <th>Belum pernah ditonton</th>
+        {% endif %}
+        <th>{{watch.review}}</th>
+    </tr>
+{% endfor %}
+    
+  </table>
+
+ {% endblock content %}
