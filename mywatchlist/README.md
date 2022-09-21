@@ -97,7 +97,7 @@
             ini sudah dari tugas 2 dalam deploymentnya, tetapi karena ada data baru. Maka perlu ditambahkan di file Profile bagian akhir release, ``` ...&& python manage.py loaddata initial_mywatchlist_data.json ```
             supaya di heroku bisa ke load data-data yang diperlukan di mywatchlist.
         
-
+        
 -Screenshot dari mengakses link dari postman
 HTML
 ![alt text](./assets/postman_html.png "postman_html-image")
