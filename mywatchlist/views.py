@@ -7,7 +7,7 @@ import operator
 # Create your views here.
 def show_mywatchlist(request):
     data_barang_mywatchlist = MyWatchList.objects.all()
-    data_barang_mywatchlist = sorted(data_barang_mywatchlist, key=operator.attrgetter('last_name'))
+    data_barang_mywatchlist = sorted(data_barang_mywatchlist, key=operator.attrgetter('pk'))
     sudah_nonton = 0
     belum_nonton = 0
     for list in data_barang_mywatchlist:
@@ -15,7 +15,6 @@ def show_mywatchlist(request):
             sudah_nonton += 1
         else:
             belum_nonton += 1
-    
     if (sudah_nonton >= belum_nonton):
         kesimpulan = "1"
     else:
