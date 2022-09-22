@@ -1,3 +1,8 @@
+Link in my deployment in heroku
+- https://tugas2teukugevin.herokuapp.com/mywatchlist/html/
+- https://tugas2teukugevin.herokuapp.com/mywatchlist/xml/
+- https://tugas2teukugevin.herokuapp.com/mywatchlist/json/
+
 -Jelaskan perbedaan antara JSON, XML, dan HTML!
     - Yang pertama adalah cara menyimpan elemen,  JSON menyimpan elemennya secara efisien akan tetapi tidak rapi untuk dilihat. Sedangkan XML menyimpan 
     elemen-elemen nya dengan cara yang terstruktur, mudah dibaca oleh manusia dan mesin, akan tetapi kurang efisien, dan HTML lebih difokuskan tampilan 
