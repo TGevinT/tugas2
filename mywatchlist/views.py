@@ -2,10 +2,12 @@ from django.shortcuts import render
 from mywatchlist.models import MyWatchList
 from django.http import HttpResponse
 from django.core import serializers
+import operator
 
 # Create your views here.
 def show_mywatchlist(request):
     data_barang_mywatchlist = MyWatchList.objects.all()
+    data_barang_mywatchlist = sorted(data_barang_mywatchlist, key=operator.attrgetter('last_name'))
     sudah_nonton = 0
     belum_nonton = 0
     for list in data_barang_mywatchlist:
