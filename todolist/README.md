@@ -71,25 +71,29 @@ buka cmd, cd ke alamat tugas tersebut, melakukan ```env\Scripts\activate.bat``` 
 di folder project_django, di settings.py, di INSTALLED_APPS tambahkan ```'todolist'```. Di urls.py di urlpatterns tambahkan ```path('todolist/', include('todolist.urls')),```
 
 ### Membuat sebuah model Task yang memiliki atribut sebagai berikut:
-Bisa dilihat dari dari models.py di folder todolist atau klik [model.py](/model.py) dengan penambahan ```is_finished``` (bonus)
+Bisa dilihat dari dari models.py di folder todolist atau klik [model.py](https://github.com/TGevinT/tugas2/blob/main/todolist/model.py) dengan penambahan ```is_finished``` (bonus)
 dan tidak lupa di cmd tadi jalankan ```python manage.py makemigrations``` dan  ```python manage.py migrate``` jika menambahkan dan membuat
 model karena perlu diterapkan juga di databasenya
 
 ### Mengimplementasikan form registrasi, login, dan logout agar pengguna dapat menggunakan todolist dengan baik.
-Bisa dilihat [views.py](/views.py) untuk logiknya, html untuk [login](/templates/login.html), dan html untuk [register](/templates/todolist.html)
-class di views.py untuk login adalah ```login_user```, registrasi adalah ```register```, dan logout adalah ```logout_user```.
+Bisa dilihat [views.py](https://github.com/TGevinT/tugas2/blob/main/todolist/views.py) untuk logiknya, html untuk [login](https://github.com/TGevinT/tugas2/blob/main/todolist/templates/login.html),
+dan html untuk [register](https://github.com/TGevinT/tugas2/blob/main/todolist/templates/todolist.html)class di views.py untuk login adalah ```login_user```,
+registrasi adalah ```register```, dan logout adalah ```logout_user```.
 
 
 ### Membuat halaman utama todolist yang memuat username pengguna, tombol Tambah Task Baru, tombol logout, serta tabel berisi tanggal pembuatan task, judul task, dan deskripsi task.
-Bisa dilihat [todolist.html](/templates/todolist.html) implementasi todolist beserta bonusnya dan logika untuk mengirim datanya [views.py](/views.py), di class show_todolist
+Bisa dilihat [todolist.html](https://github.com/TGevinT/tugas2/blob/main/todolist/templates/todolist.html) implementasi todolist beserta bonusnya 
+dan logika untuk mengirim datanya [views.py](https://github.com/TGevinT/tugas2/blob/main/todolist/views.py), di class show_todolist
 
 ### Membuat halaman form untuk pembuatan task. Data yang perlu dimasukkan pengguna hanyalah judul task dan deskripsi task.
-Bisa dilihat [create-task.html](/templates/create-task.html) implementasi pembuatan task, ada ```{{ form.as_p }}``` dari html tersebut yang di hasilkan dari [form.py](/forms.py)
-dan logikan dari class create_task berada di [views.py](/views.py). logika tersebut untuk membuat instance baru dari input user dan menambahkannya ke data base, forms untuk 
-menampilkan input apa saja yang diperlukan user, dan create-task.html tempat user melihatnya input apa saja yang diperlukan dan menginputnya.
+Bisa dilihat [create-task.html](https://github.com/TGevinT/tugas2/blob/main/todolist/templates/create-task.html) implementasi pembuatan task,
+ ada ```{{ form.as_p }}``` dari html tersebut yang di hasilkan dari [form.py](https://github.com/TGevinT/tugas2/blob/main/todolist/forms.py)
+dan logikan dari class create_task berada di [views.py](https://github.com/TGevinT/tugas2/blob/main/todolist/views.py). logika tersebut untuk 
+membuat instance baru dari input user dan menambahkannya ke data base, forms untuk menampilkan input apa saja yang diperlukan user, 
+dan create-task.html tempat user melihatnya input apa saja yang diperlukan dan menginputnya.
 
 ### Membuat routing sehingga beberapa fungsi dapat diakses melalui URL berikut
-Bisa dilihat di [urls.py](/urls.py) rooting semuanya yang bisa dibuka dari ```http://localhost:8000/todolist```
+Bisa dilihat di [urls.py](https://github.com/TGevinT/tugas2/blob/main/todolist/urls.py) rooting semuanya yang bisa dibuka dari ```http://localhost:8000/todolist```
 
 ###  Melakukan deployment ke Heroku terhadap aplikasi yang sudah kamu buat sehingga nantinya dapat diakses oleh teman-temanmu melalui Internet.
 Karena mengunakan repo sama dengan tugas-tugas sebelumnya jadi saya sudah melakukan deployment
