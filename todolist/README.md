@@ -64,7 +64,7 @@ Setelah itu, akan dibuat instance dari model baru dari hasil tranfer data user b
 instance-intance yang sudah ada akan diambil dari database dan ditampilkan ke html(web).
 
 ## Cara kamu mengimplementasikan checklist di atas
-# Membuat suatu aplikasi baru bernama todolist di proyek tugas Django yang sudah digunakan sebelumnya
+### Membuat suatu aplikasi baru bernama todolist di proyek tugas Django yang sudah digunakan sebelumnya
 buka cmd, cd ke alamat tugas tersebut, melakukan ```env\Scripts\activate.bat``` sesudah itu jalankan ```python manage.py startapp todolist```.
 
 ### Menambahkan path todolist sehingga pengguna dapat mengakses http://localhost:8000/todolist.
@@ -77,7 +77,7 @@ model karena perlu diterapkan juga di databasenya
 
 ### Mengimplementasikan form registrasi, login, dan logout agar pengguna dapat menggunakan todolist dengan baik.
 Bisa dilihat [views.py](https://github.com/TGevinT/tugas2/blob/main/todolist/views.py) untuk logiknya, html untuk [login](https://github.com/TGevinT/tugas2/blob/main/todolist/templates/login.html),
-dan html untuk [register](https://github.com/TGevinT/tugas2/blob/main/todolist/templates/todolist.html)class di views.py untuk login adalah ```login_user```,
+dan html untuk [register](https://github.com/TGevinT/tugas2/blob/main/todolist/templates/todolist.html) class di views.py untuk login adalah ```login_user```,
 registrasi adalah ```register```, dan logout adalah ```logout_user```.
 
 
