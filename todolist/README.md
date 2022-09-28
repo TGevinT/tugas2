@@ -101,10 +101,10 @@ Karena mengunakan repo sama dengan tugas-tugas sebelumnya jadi saya sudah melaku
 ### Membuat dua akun pengguna dan tiga dummy data menggunakan model Task pada akun masing-masing di situs web Heroku.
 Akun 1 (Username : saitama, Password : onepunchman) dan Akun 2 (Username : wibu, Password : baubawang)
 
-todolist.html akun 1 di web yang sudah di deployment di heroku
+## todolist.html akun 1 di web yang sudah di deployment di heroku
 ![alt text](./assets/todolist_saitama.png "todolist_saitama-image")
 
-todolist.html akun 2 di web yang sudah di deployment di heroku
+## todolist.html akun 2 di web yang sudah di deployment di heroku
 ![alt text](./assets/todolist_wibu.png "todolist_wibu-image")
 
 # Sekian Terima Kasih 😊
