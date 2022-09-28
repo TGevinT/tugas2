@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+<title>Create Task</title>
+{% endblock meta %}
+
+{% block content %}
+
+    <h1>Create a new task</h1>
+
+    <form method="POST" action="">
+        {% csrf_token %}
+        
+        {{ form.as_p }}
+
+        <input type="submit", value="Create">
+    </form>
+    <button><a href="{% url 'todolist:show_todolist' %}">Cancel</a></button>
+
+
+{% endblock content %}
