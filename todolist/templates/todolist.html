@@ -6,35 +6,57 @@
 {% endblock meta %}
 
 {% block content %}
-<h3>Username: {{username_login}}</h3>
-<br></br>
-<h4>TASK</h4>
-<table border = "10" cellpadding = "10" cellspacing = "10">
-    <tr>
-        <th>Tanggal Penambahan </th>
-        <th>Judul </th>
-        <th>Deskripsi </th>
-        <th>Status</th>
-        <th>Update Status</th>
-        <th>Delate Task</th>
-    </tr>
-    {% comment %} Tambahkan data di bawah baris ini {% endcomment %}
-    {% for task in task_object%}
-    <tr>
-        <th>{{task.date}}</th>
-        <th>{{task.title}}</th>
-        <th>{{task.description}}</th>
-        {% if task.is_finished %} <th>Selesai</th>
-        {% else %} <th>Belum Selesai</th> {% endif %}
-        <th><button><a href="{% url 'todolist:update_task' task.id %}">Update</a></button></th>
-        <th><button><a href="{% url 'todolist:delete_task' task.id %}">Delete</a></button></th>
-        
-    </tr>
-    {% endfor %}
-</table>
-<br></br>
-<button><a href="{% url 'todolist:logout' %}">Logout</a></button>
-<br></br>
-<button><a href="{% url 'todolist:create_task' %}">Tambah Task Baru</a></button>
+<div class= "bg-gradient-to-tr from-red-500 to-blue-500 h-full">
+    <nav class="bg-gradient-to-tr from-blue-900 to-red-900 border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
+        <div class="container flex flex-wrap justify-between items-center mx-auto">
+            <dev class="self-center text-xl font-semibold whitespace-nowrap text-white"> Login as {{username_login}}</dev>
+            <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+            </button>
+            <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+                <ul class="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                    <li>
+                        <a href="#" class="block py-2 pr-4 pl-3 text-blue-700 rounded md:bg-transparent  md:p-0 dark:text-white" aria-current="page">Home</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'todolist:create_task' %}" class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Add task</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'todolist:logout' %}" class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Log out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="text-white flex justify-center text-2xl items-center border-b-4 p-2">
+        Task to do
+    </div>
+    <div class="mt-5 flex flex-wrap justify-center items-center space-x-8 space-y-8">
+        {% for task in task_object%}
+            <div class="card w-80 h-80 border-8 border-pink-600 divide-y-4 divide-pink-600 bg-indigo-500 p-2 backdrop-blur-sm transition ease-in-out hover:-translate-y-1 hover:scale-150 hover:bg-white duration-300">
+                <div class="text-center p-1">
+                    <h2>{{task.title}}</h2>
+                    <h1>(added at {{task.date}})</h1>
+                </div>
+                <div class="text-justify flex justify-center items-center text-sm h-40">
+                    {{task.description}}
+                </div>
+                <div class="text-center p-1">
+                    {% if task.is_finished %} <div class="text-white text-lg bg-blue-700 w-full" >Selesai</div>
+                    {% else %} <div class="text-white text-lg bg-red-700 w-full">Belum selesai</div>{% endif %}
+                </div>
+                <div class="space-x-12 flex justify-center p-2">
+                    <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded  ">
+                        <a href="{% url 'todolist:update_task' task.id %}">Update</a>
+                    </button>
+                    <button class="bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded  ">
+                        <a href="{% url 'todolist:delete_task' task.id %}">Delete</a>
+                    </button>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
 
 {% endblock content %}

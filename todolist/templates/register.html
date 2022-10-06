@@ -6,31 +6,54 @@
 
 {% block content %}  
 
-<div class = "login">
-    
-    <h1>Formulir Registrasi</h1>  
+<div class ="bg-gradient-to-tr from-red-500 to-blue-500 h-full flex justify-start items-center text-xs lg:text-base lg:justify-center">
+    <div class="card h-auto w-auto p-5 drop-shadow-2xl flex justify-start backdrop-blur-sm lg:justify-center lg:w-3/5 lg:h-3/5" style="
+        background: hsla(0, 0%, 100%, 0.8);
+        ">
+        <div class="card-body p-5">
+            <div class="row flex justify-start lg:justify-center">
+                <div class="col-lg-10">
+                    <h2 class="fw-bold mb-5  text-white  bg-gradient-to-tr from-red-500 to-blue-500 drop-shadow-2xl text-center lg:text-xl ">Create and account</h2>  
+                    <form method="POST" >  
+                        {% csrf_token %}
+                        <div class="form-outline mb-4">
+                            <label for="{{form.username.id_for_label}}" class="form-label">Username</label>
+                            <div class="w-full">
+                                {{form.username}}
+                            </div>
+                        </div>
 
-        <form method="POST" >  
-            {% csrf_token %}  
-            <table>  
-                {{ form.as_table }}  
-                <tr>  
-                    <td></td>
-                    <td><input type="submit" name="submit" value="Daftar"/></td>  
-                </tr>  
-            </table>  
-        </form>
+                        <div class="form-outline mb-4">
+                            <label for="{{form.password1.id_for_label}}" class="form-label">Password</label>
+                            <div class="w-full">
+                                {{form.password1}}
+                            </div>
+                        </div>
 
+                        <div class="form-outline mb-4">
+                            <label for="{{form.password2.id_for_label}}" class="form-label">Confirm password</label>
+                            <div>
+                                {{form.password2}}
+                            </div>
+                        </div>
 
-    {% if messages %}  
-        <ul>   
-            {% for message in messages %}  
-                <li>{{ message }}</li>  
-                {% endfor %}  
-        </ul>   
-    {% endif %}
-    <button><a href="{% url 'todolist:login' %}">Cancel</a></button>
+                        <button type="submit" name="submit" value="Daftar" class="btn btn-primary btn-block mb-4 rounded-full drop-shadow-2xl w-full mt-3">
+                            Create an account
+                        </button>
 
-</div>  
+                        <h2>Sudah mempunyai akun? <a href="{% url 'todolist:login' %}" class="underline-offset-1 text-blue-500">Login disini</a></h2>
+                    </form>
+                    {% if messages %}  
+                        <ul>   
+                            {% for message in messages %}  
+                                <li>{{ message }}</li>  
+                                {% endfor %}  
+                        </ul>   
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 {% endblock content %}

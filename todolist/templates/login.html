@@ -5,41 +5,49 @@
 {% endblock meta %}
 
 {% block content %}
+{% load static %}
 
-<div class = "login">
+<!-- Section: Design Block -->
+<div class= "bg-gradient-to-tr from-red-500 to-blue-500 h-full flex justify-start items-center  text-xs lg:text-center lg:text-base lg:justify-center">
+  <div class="card w-auto h-auto p-5 drop-shadow-2xl justify-start backdrop-blur-sm lg:justify-center lg:w-3/5 lg:h-3/5" style="
+        background: hsla(0, 0%, 100%, 0.8);
+        ">
+    <div class="card-body p-5">
+      <div class="row flex justify-start lg:justify-center">
+        <div class="col-lg-10">
+          <h2 class="fw-bold mb-5  text-white  bg-gradient-to-tr from-red-500 to-blue-500 drop-shadow-2xl lg:text-xl ">Sign up now</h2>
+          <form method="POST" action="">
+            {% csrf_token %}
+            <!-- Username input-->
+            <div class="form-outline mb-4">
+              <label class="form-label " >Username</label>
+              <input type="username" name="username" placeholder="Username"  class="form-control text-center drop-shadow-2xl text-xs lg:text-base" />
+            </div>
 
-    <h1>Login</h1>
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+              <label class="form-label " >Password</label>
+              <input type="password" name="password" placeholder="........" class="form-control text-center drop-shadow-2xl text-xs lg:text-base" />
+            </div>
 
-    <form method="POST" action="">
-        {% csrf_token %}
-        <table>
-            <tr>
-                <td>Username: </td>
-                <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
-            </tr>
-                    
-            <tr>
-                <td>Password: </td>
-                <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
-            </tr>
-
-            <tr>
-                <td></td>
-                <td><input class="btn login_btn" type="submit" value="Login"></td>
-            </tr>
-        </table>
-    </form>
-
-    {% if messages %}
-        <ul>
-            {% for message in messages %}
-                <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}     
-        
-    Belum mempunyai akun? <a href="{% url 'todolist:register' %}">Buat Akun</a>
-
+            <!-- Submit button -->
+            <button type="submit" value="Login" class="btn btn-primary btn-block mb-4 rounded-full drop-shadow-2xl ">
+              Sign up
+            </button>
+          </form>
+          {% if messages %}
+            <ul>
+              {% for message in messages %}
+                  <li class="m-2 text-red-500 ">{{ message }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}     
+          
+          <h2 >Belum mempunyai akun? <a href="{% url 'todolist:register' %}" class="underline-offset-1 text-blue-500">Buat akun disini</a></h2>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 {% endblock content %}

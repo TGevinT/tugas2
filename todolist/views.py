@@ -7,7 +7,6 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
-import datetime
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 # Create your views here.
@@ -19,7 +18,7 @@ def show_todolist(request):
     task_obeject = Task.objects.filter(user=request.user)
     context = {
         'username_login': request.COOKIES['user_name'],
-        'task_object': task_obeject
+        'task_object': task_obeject,
     }
     return render(request, 'todolist.html', context)
 

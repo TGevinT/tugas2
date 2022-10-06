@@ -107,4 +107,74 @@ Akun 1 (Username : saitama, Password : onepunchman) dan Akun 2 (Username : wibu,
 ## todolist.html akun 2 di web yang sudah di deployment di heroku
 ![alt text](./assets/todolist_wibu.png "todolist_wibu-image")
 
+# Tugas 5
+## Perbedaan Inline, Internal, dan External CSS
+### Inline
+Inline adalah cara membuat style langsung dari atributnya, setiap atribut memilki style jadi dari situlah bisa langung kita style kan cssnya. Kekurangannya cara style ini
+kurang efisien disebabkan ada style yang bisa digunakan berkali-kali tapi kita harus mendeskripsikan terus stylenya di atribut tersebut
+
+### Internal
+Internal dalam style css menggunkan tag ```<style>``` dan kode HTML dituliskan di bagian atas (header) file HTML. Cara style tersebut bagus jika ingin membuat halaman web yang unik
+(kurang mirip dengan website lain) karena style tersebut hanya bisa digunkan di dalam HTML tersebut saja.
+
+### External
+Eksternal CSS adalah kode CSS yang ditulis terpisah dengan kode HTML Eksternal CSS ditulis di sebuah file khusus yang berekstensi
+```.css```. File eksternal CSS biasanya diletakkan setelah bagian ```<head>``` pada halaman.
+Cara ini lebih sederhana dan simpel daripada menambahkan kode CSS di setiap elemen HTML yang ingin Anda atur tampilannya. 
+
+## Tag HTML5
+- <p> - Menampilkan teks berukuran normal.
+- <h1> ... <h6> - Menampilkan Teks dengan ukuran berbeda-beda, <h1> paling kecil, <h6> paling besar.
+- <a> - Teks tersebut ketika ditekan bisa mengarahkan link yang di simpan di href.
+- <div> - Tag ini dapat membungkus dan memisahkan elemen-elemen lain.
+- <form> - Tag ini akan membuat form yang dapat mengirimkan request POST/UPDATE/DELETE.
+- <input> - Tag ini digunakan di dalam tag <form> yang dapat menerima masukan dari pengguna. Atribut type menentukan jenisnya.
+- <button> - Tag ini akan membuat sebuah kotak yang dapat ditekan layaknya tombol.
+- <span> - Tag ini bekerja mirip dengan <div> tapi hanya dalam 1 baris teks.
+- <br> - Tag ini akan membuat baris baru.
+- <hr> - Tag ini akan membuat garis pemisah.
+- <table> - Tag ini akan membuat tabel dengan <tr> sebagai baris dan <td> sebagai kolom/data.
+- <nav> - Tag ini mendefinisikan sebuah navbar
+- <tb> - Tag ini mendefinisikan kolom sebuah tabel (harus didalam tag <table>)
+- <tr> - Tag ini mendefinisikan baris sebuah tabel (harus didalam tag <table>)
+- <th> - Tag ini mendefinisikan baris pertama yang biasanya diisi hal yang mau kita input (harus didalam tag <table>)
+
+## CSS selector
+### Element selector
+Ini mengubah atau mengedit content yang di dalam tag yang terdapat di HTML
+formatnya ```p{...}```
+
+### Class selector
+Ini mengubah atau mengedit content dari tag yang mendefinisikan class di HTML
+formatnya ```.content_table{...}```
+
+### Id selector
+Ini mengubah atau mengedit content dari tag yang mendefinisikan id di HTML
+formatnya ```#myHeader{...}```
+
+## To do
+### Kustomisasi templat HTML yang telah dibuat pada Tugas 4 dengan menggunakan CSS atau CSS framework (seperti Bootstrap, Tailwind, Bulma)
+Pada Tugas 5 kali ini saya memakai Tailwind, karena menurut saya penerapan css mengunakan class lumayan mudah dan banyak documentasinya.
+Supaya HTML saya bisa menggunakan CSS framework Tailwind, Tambahkan ```<script src="https://cdn.tailwindcss.com"></script>``` pada
+base.html bagian header (supaya bisa diakses frameworknya)
+
+### Kustomisasi templat untuk halaman login, register, dan create-task semenarik mungkin.
+Menurut saya sudah menarik dan saya bangga, dalam hal desain mungkin saya kurang bagus tapi saya menyukai karya edit html saya tersebut
+
+### Kustomisasi halaman utama todo list menggunakan cards. (Satu card mengandung satu task).
+```
+...
+{% for task in task_object%}
+    <div class="card w-80 h-80 border-8 border-pink-600 divide-y-4 divide-pink-600 bg-indigo-500 p-2 backdrop-blur-sm transition ease-in-out hover:-translate-y-1 hover:scale-150 hover:bg-white duration-300">
+...
+``` 
+dengan begini task yang dihasilkan akan berbentuk cards
+
+### responsive design
+Saya menggunakan dari documentasi Tailwind yaitu berdasarkan breakpoint prefix, jadi misal sudah saya beberapa pixel makan akan berubah bentuk webnya untuk menyuaikan
+breakpoint prefix di pixel ada 5 yaitu sm:640px, md:768px, lg: 1024px, xl: 1280px, dan 2xl: 1536px. Sebenarnya bisa juga menggunakan @media (min-width: 1024px) { ... }
+dengan min-widthnya bebas diatur(tidak berdasarkan 5 breakpoints itu saja) dan didalam kurung membuat style yang sesuai
+
+
+
 # Sekian Terima Kasih 😊
