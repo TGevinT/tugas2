@@ -6,10 +6,13 @@
 {% endblock meta %}
 
 {% block content %}
+
+
 <div class= "bg-gradient-to-tr from-red-500 to-blue-500 h-full">
     <nav class="bg-gradient-to-tr from-blue-900 to-red-900 border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
         <div class="container flex flex-wrap justify-between items-center mx-auto">
             <dev class="self-center text-xl font-semibold whitespace-nowrap text-white"> Login as {{username_login}}</dev>
+            <input type="hidden" id = "id-user" name="submit" value="{{user.id}}"/>
             <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
                 <span class="sr-only">Open main menu</span>
                 <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
@@ -20,7 +23,7 @@
                         <a href="#" class="block py-2 pr-4 pl-3 text-blue-700 rounded md:bg-transparent  md:p-0 dark:text-white" aria-current="page">Home</a>
                     </li>
                     <li>
-                        <a href="{% url 'todolist:create_task' %}" class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Add task</a>
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#defaultModal"  class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Add task</button>
                     </li>
                     <li>
                         <a href="{% url 'todolist:logout' %}" class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Log out</a>
@@ -32,31 +35,161 @@
     <div class="text-white flex justify-center text-2xl items-center border-b-4 p-2">
         Task to do
     </div>
-    <div class="mt-5 flex flex-wrap justify-center items-center space-x-8 space-y-8">
-        {% for task in task_object%}
-            <div class="card w-80 h-80 border-8 border-pink-600 divide-y-4 divide-pink-600 bg-indigo-500 p-2 backdrop-blur-sm transition ease-in-out hover:-translate-y-1 hover:scale-150 hover:bg-white duration-300">
-                <div class="text-center p-1">
-                    <h2>{{task.title}}</h2>
-                    <h1>(added at {{task.date}})</h1>
-                </div>
-                <div class="text-justify flex justify-center items-center text-sm h-40">
-                    {{task.description}}
-                </div>
-                <div class="text-center p-1">
-                    {% if task.is_finished %} <div class="text-white text-lg bg-blue-700 w-full" >Selesai</div>
-                    {% else %} <div class="text-white text-lg bg-red-700 w-full">Belum selesai</div>{% endif %}
-                </div>
-                <div class="space-x-12 flex justify-center p-2">
-                    <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded  ">
-                        <a href="{% url 'todolist:update_task' task.id %}">Update</a>
-                    </button>
-                    <button class="bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded  ">
-                        <a href="{% url 'todolist:delete_task' task.id %}">Delete</a>
-                    </button>
+    <div id ="card-container" class="mt-5 flex flex-wrap justify-center items-center space-x-8 space-y-8"></div>
+
+    <!-- Main modal -->
+    <div id="defaultModal" tabindex="-1" aria-hidden="true" class="modal fade ">
+        <div class="modal-dialog card h-auto w-auto drop-shadow-2xl backdrop-blur-sm lg:w-2/5 lg:h-2/5 " style="
+            background: hsla(0, 0%, 100%, 0.8);
+            ">
+            <div class="modal-content card-body">
+                <div class="row flex justify-start lg:justify-center">
+                    <div class="modal-header">
+                        <h2 class="modal-title fw-bold w-full text-start lg:text-xl ">
+                            Create a new task
+                        </h2>
+                        <button type="button" data-bs-dismiss="modal" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white">
+                            <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                            <span class="sr-only">Close modal</span>
+                        </button>
+                    </div>
+                    <div class="modal-body col-lg-10"></div>
+                        <form method="POST" action="" id="add-task-form">
+                            {% csrf_token %}
+                            <div class="form-outline mb-4">
+                                <label for="title" class="form-label left-0">
+                                    <span class="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700">
+                                        Title
+                                    </span>
+                                </label>
+                                <input id="title" type="text" name="title" class="form-control form-control-sm" autocomplete="off" required />   
+                            </div>
+
+                            <div class="form-outline mb-4">
+                                <label for="description" class="form-label left-0 ">
+                                    <span class="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700">
+                                        Description
+                                    </span>
+                                </label>
+                                <textarea id="description" type="text" name="description" class="form-control" rows="4" autocomplete="off" required></textarea>
+                            </div>
+                            <button data-bs-dismiss="modal" type="submit" name="submit" value="Create" class="btn btn-primary btn-block mb-4 rounded-full drop-shadow-2xl w-full mt-3 text-black hover:text-white">
+                                Create task
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
-        {% endfor %}
+        </div>
     </div>
+    
 </div>
+
+<!--Ajax Implement for Asyncronous-->
+<script type="text/javascript">
+    var user =  document.getElementById("id-user").value;
+
+
+    $(document).ready(function() {
+        
+        getForm();
+
+        $(document).on('submit',"#add-task-form",function (e) {
+        e.preventDefault();
+
+        var title = $('#title').val();
+        var description = $('#description').val();
+
+        $.ajax({
+            type: "POST",
+            url: "add_task_ajax/",
+            async:true,
+            data:{
+                title: title,
+                description: description,
+                csrfmiddlewaretoken:$('input[name = csrfmiddlewaretoken]').val()
+            },
+            success: function (response) {
+                document.getElementById("add-task-form").reset();
+                $("#defaulModal").addClass("hidden");
+                $("#card-container").empty();
+                getForm();
+            },
+            error: function (error) {
+                console.log(error);
+            },
+
+        });
+
+        });
+        
+    });
+
+    //Menampilkan card task
+    function getForm(){
+        $.get("{% url 'todolist:show_json' %}", function(data) {
+            $.each(data, function(index, value) {  
+                var status = ""
+                if(value.fields.is_finished){
+                    status = "<div class='text-white text-lg bg-blue-700 w-full' >Selesai</div>"
+                }else{
+                    status ='<div class="text-white text-lg bg-red-700 w-full">Belum selesai</div>'
+                }
+                if (value.fields.user == user) {
+                    $("#card-container").append(
+                        '<div class="card w-80 h-80 border-8 border-pink-600 divide-y-4 divide-pink-600 bg-indigo-500 p-2 backdrop-blur-sm transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-white duration-300">' +
+                            '<div class="text-center p-1">' +
+                                '<h2>'+ value.fields.title + '</h2>' +
+                                '<h1>(added at '+ value.fields.date + ')</h1>' +
+                            '</div>' +
+                            '<div class="text-justify flex justify-center items-center text-sm h-40">'+
+                                value.fields.description +                                    
+                            '</div>'+
+                            '<div class="text-center p-1">'+
+                                status +
+                            '</div>' +
+                            '<div class="space-x-12 flex justify-center p-2">'+
+                                '<button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">'+
+                                    '<a onclick="updateTask('+ value.pk +')">Update</a>'+
+                                '</button>'+
+                                '<button class="bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded ">'+
+                                    '<a onclick="deleteTask('+ value.pk +')">Delete</a>'+
+                                '</button>'+
+                            '</div>'+
+                        '</div>'
+                    );
+                }
+            });
+        });
+    }
+
+    // delete task implement
+    function deleteTask(id) {
+        $.ajax({
+            type: "POST",
+            url:"delete_task_ajax/" + id,
+            data: {csrfmiddlewaretoken:$('input[name = csrfmiddlewaretoken]').val(),},
+            success: function (response) {
+                $("#card-container").empty();
+                getForm();
+            },
+        });
+    }
+
+    // update task implement
+    function updateTask(id) {
+        $.ajax({
+            type: "POST",
+            url:"update_task_ajax/" + id,
+            data: {csrfmiddlewaretoken:$('input[name = csrfmiddlewaretoken]').val() },
+            success: function (response) {
+                $("#card-container").empty();
+                getForm();
+            },
+        });
+    }
+
+
+</script>
 
 {% endblock content %}

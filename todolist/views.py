@@ -7,18 +7,21 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse, JsonResponse
 from django.urls import reverse
+from django.core import serializers
 # Create your views here.
 
 # variables for todolist.html
 @login_required(login_url='/todolist/login')
 def show_todolist(request):
-
     task_obeject = Task.objects.filter(user=request.user)
+    user = request.user
     context = {
         'username_login': request.COOKIES['user_name'],
         'task_object': task_obeject,
+        'user' : user,
+
     }
     return render(request, 'todolist.html', context)
 
@@ -85,3 +88,41 @@ def delete_task(request, id):
     task.delete()
     return redirect('todolist:show_todolist')
 
+def show_json(request):
+    data = Task.objects.all()
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+
+def add_task_ajax(request):
+    # form = CreatNewTask(request.POST)
+    if request.method == 'POST' :
+        title = request.POST.get('title')
+        description = request.POST.get('description')
+        user = request.user
+
+        Task.objects.create(
+            user = user,
+            title = title,
+            description = description,
+        )
+
+        #task = form.save(commit=False)
+        #task.user = request.user
+        #task.save()
+    return JsonResponse({}, status=200)
+   
+
+# logic update task ajax
+def update_task_ajax(request, id):
+    if request.method == 'POST': 
+        task = Task.objects.get(pk=id)
+        task.is_finished = not task.is_finished
+        task.save()
+    return JsonResponse({}, status=200)
+
+
+# logic delate task ajax
+def delete_task_ajax(request, id):
+    if request.method == 'POST':
+        task = Task.objects.get(pk=id)
+        task.delete()
+    return JsonResponse({}, status=200)
