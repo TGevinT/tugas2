@@ -132,9 +132,7 @@ USE_I18N = True
 
 USE_TZ = True
 
-NPM_BIN_PATH = "/Program Files/nodejs/npm.cmd"
 
-TAILWIND_APP_NAME = 'theme'
 
 
 # Static files (CSS, JavaScript, Images)
@@ -150,9 +148,6 @@ STATICFILES_DIRS = [
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-
-for directory in [*STATICFILES_DIRS, STATIC_ROOT]:
-    directory.mkdir(exist_ok=True)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
